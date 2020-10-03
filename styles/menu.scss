@@ -15,6 +15,14 @@ $black: #191919;
       padding-right: 360px;
     }
   }
+  @media (max-width: 992px) {
+    .menu-container {
+      width: 992px;
+      .menu-wrapper {
+        padding: 0 32px;
+      }
+    }
+  }
 }
 
 .hamburger-menu {
@@ -55,6 +63,15 @@ $black: #191919;
         align-items: center;
         position: relative;
         top: 200px;
+        @media (max-width: 1265px) {
+          justify-content: space-around;
+        }
+        @media (max-width: 1130px) {
+          position: absolute;
+          left: 100px;
+          justify-content: space-between;
+        }
+
         nav {
           display: block;
           ul {
@@ -69,11 +86,20 @@ $black: #191919;
               overflow: hidden;
               position: relative;
               width: 700px;
+              @media (max-width: 1265px) {
+                font-size: 5rem;
+                width: 500px;
+              }
+              @media (max-width: 1130px) {
+                font-size: 4.5rem;
+                width: 400px;
+              }
               a {
                 position: absolute;
                 letter-spacing: 5px;
                 font-weight: 900;
                 color: #fff;
+                width: 100%;
                 text-decoration: none;
                 &:hover {
                   color: $black;
@@ -82,10 +108,15 @@ $black: #191919;
             }
           }
         }
+
         .info {
           width: 300px;
+          @media (max-width: 1130px) {
+            margin-left: 150px;
+          }
+
           h3 {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin: 8px auto;
             letter-spacing: 0.2rem;
             color: $black;
@@ -93,9 +124,10 @@ $black: #191919;
           }
 
           p {
-            font-size: 0.75rem;
+            font-size: 1rem;
             letter-spacing: 0.2rem;
             font-weight: 500;
+            margin-bottom: 10px;
           }
         }
       }
@@ -104,21 +136,28 @@ $black: #191919;
         bottom: -80px;
         color: $black;
         margin-top: 16px;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         font-weight: 900;
+        display: flex;
+        align-items: center;
         span {
           font-weight: normal;
-          &:first-child {
-            margin: 64px;
-          }
           cursor: pointer;
           margin: 0 32px;
           transition: 0.3s ease-in-out;
+          svg {
+            width: 30px;
+            height: 30px;
+            path {
+              fill: #191919;
+            }
+          }
           &:hover {
-            background-color: $black;
-            padding: 8px 24px;
-            border-radius: 4px;
-            color: white;
+            svg {
+              path {
+                fill: white;
+              }
+            }
           }
         }
       }

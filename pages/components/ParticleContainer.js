@@ -16,7 +16,7 @@ const ParticleContainer = () => {
             value: ["#35cc60", "#52cbd0", "#0b521f"],
           },
           size: {
-            value: 7,
+            value: 3,
             random: true,
             anim: {
               speed: 6,

@@ -1,14 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;900&display=swap");
-@import "./homepage/home.scss";
-@import "./header.scss";
+
 @import "./menu.scss";
-@import "./homepage/homeAbout.scss";
+
 $red: #e20001;
 $black: #191919;
 
 body {
-  background-color: #f8f8ff;
-  font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f6f6f6;
+  font-family: "Montserrat", "Segoe UI", Tahoma, Verdana, sans-serif;
   overflow-x: hidden;
 }
 
@@ -41,27 +40,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /*   .panel-right {
-    position: absolute;
-    width: 50vw;
-    height: 100vh;
-    background-color: lightblue;
-    top: 0;
-    right: 0;
-    bottom: 0;
-  }
-  .panel-left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 50vw;
-    height: 100vh;
-    background-color: lightcoral;
-  } */
 }
-
 //CUSTOM SCROLLBAR
 
 /* width */

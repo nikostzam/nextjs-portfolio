@@ -1,7 +1,16 @@
-import styled, { css } from "styled-components";
-
 import React, { useState, useEffect } from "react";
+
 // Styled Components
+import {
+  HomeAboutSection,
+  About,
+  Services,
+  AccordionHeader,
+  AccordionIcon,
+  AccordionContent,
+  Container,
+  Flex,
+} from "../../styles/homeStyles";
 
 // Scroll Animations
 import { useInView } from "react-intersection-observer";
@@ -10,178 +19,42 @@ import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 //Home Component
 
-export const HomeAboutSection = styled(motion.div)`
-  margin-bottom: 200px;
-  background-color: #191919;
-  height: 70vh;
-`;
-
-const About = styled.div`
-  width: 100%;
-  margin: 120px 0;
-  h2 {
-    width: 70%;
-    font-size: 2.3rem;
-    font-weight: 400;
-    margin-left: 124px;
-    color: white;
-  }
-  p {
-    max-width: 440px;
-    font-size: 1rem;
-    line-height: 1.6rem;
-    margin-left: 124px;
-    color: white;
-  }
-`;
-const Services = styled.div`
-  color: white;
-  margin: 120px 0;
-`;
-
-//Accordion
-
-const AccordionHeader = styled(motion.div)`
-  width: 100%;
-  color: #519e67;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  font-size: 1.15rem;
-  margin: 8px 0;
-`;
-const AccordionIcon = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  margin-right: 8px;
-  span {
-    width: 16px;
-    height: 4px;
-    background: #519e67;
-    transition: all 0.1s ease-in-out;
-  }
-`;
-
-const AccordionContent = styled(motion.div)`
-  overflow: hidden;
-  padding-left: 40px;
-  span {
-    width: 100%;
-    margin: 8px 0;
-    font-size: 0.875rem;
-    color: white;
-    display: block;
-    font-weight: 300;
-  }
-`;
-const Container = styled.div`
-  flex-grow: 1;
-  margin: 0 auto;
-  padding: 0 32px;
-  position: relative;
-  width: auto;
-  height: 100%;
-  @media (min-width: 1024px) {
-    max-width: 960px;
-  }
-  @media (min-width: 1216px) {
-    max-width: 1152px;
-  }
-  @media (min-width: 1408px) {
-    max-width: 1244px;
-  }
-  ${(props) =>
-    props.fluid &&
-    css`
-      padding: 0;
-      margin: 0;
-      background: red;
-      max-width: 100% !important;
-    `}
-`;
-
-const Flex = styled(motion.div)`
-  position: relative;
-  display: flex;
-  align-items: center;
-  ${(props) =>
-    props.spaceBetween &&
-    css`
-      justify-content: space-between;
-    `};
-  ${(props) =>
-    props.flexEnd &&
-    css`
-      justify-content: flex-end;
-    `};
-  ${(props) =>
-    props.alignTop &&
-    css`
-      align-items: flex-start;
-    `};
-  ${(props) =>
-    props.noHeight &&
-    css`
-      height: 0;
-    `};
-`;
-
 // Accordion Data
 const accordionIds = [
   {
     id: 0,
-    title: "Pre-Production",
+    title: "Front End Skills",
     results: [
-      "Creative Development",
-      "Writing",
-      "Creative Development",
-      "Writing",
-      "Storyboards",
-      "Art Direction",
-      "Creative Direction",
-      "Location Scouting",
-      "Casting",
+      "ReactJS",
+      "NextJS",
+      "Redux",
+      "JavaScript",
+      "HTML5",
+      "CSS / Sass ",
+      "Wordpress",
     ],
   },
   {
     id: 1,
-    title: "Video Production",
-    results: [
-      "Principle Photography",
-      "Production Management",
-      "Crew",
-      "Dailies",
-      "LTO-Archiving",
-    ],
+    title: "Design Skills",
+    results: ["Adobe XD", "Figma", "Adobe Illustrator", "Adobe Photoshop"],
   },
   {
     id: 2,
-    title: "Post-Production",
+    title: "Having fun working with",
     results: [
-      "Colour correction",
-      "Offline editing",
-      "Online editing",
-      "VFX",
-      "Animation and motion graphics",
-      "Closed captioning and subtitles",
-      "Descriptive video",
-      "Dailies",
-      "Quality control",
-      "LTO Archiving",
+      "Firebase",
+      "Strapi",
+      "MongoDB",
+      "Styled Components",
+      "Framer Motion",
+      "React Thee Fiber / ThreeJS",
     ],
   },
   {
     id: 3,
-    title: "Audio Post-Production",
-    results: [
-      "We work with some amazing partners who provide:",
-      "Sound Design",
-      "SFX",
-      "Music",
-      "Sound Mix",
-    ],
+    title: "Personal assets",
+    results: ["Engaged", "Willing to learn", "Team player", "Friendly"],
   },
 ];
 
@@ -221,20 +94,22 @@ const HomeAbout = ({ onCursor }) => {
         >
           <About>
             <h2>
-              Furrow is an integrated, full-service creative studio offering
-              video production, creative development, and post-production
-              services.
+              My Name is <span>Nikos Tzamalis</span>
+              <br />
+              and I am a <span>Front End Web Developer</span> &
+              <span>UI/UX Designer </span>
+              from Athens, Greece.
             </h2>
             <p>
-              Everybody’s got a story. And we don’t stop until we’ve uncovered
-              what makes yours worth telling. Whether it’s working directly with
-              you, an agency partner, or putting the finishing touches on
-              something special, we’re ready to dig in and get our hands
-              dirty—are you?
+              My goal is to bring you <span>well designed, animated, fast</span>{" "}
+              and <span>SEO friendly</span> websites. Whether it’s working
+              directly with you, an agency partner, or putting the finishing
+              touches on something special. <br />
+              Nice to have you on board !
             </p>
           </About>
           <Services>
-            <h3>Services</h3>
+            <h3>My Skillset</h3>
             {accordionIds.map((details, index) => (
               <Accordion
                 key={index}
@@ -251,7 +126,7 @@ const HomeAbout = ({ onCursor }) => {
   );
 };
 
-const Accordion = ({ details, expanded, setExpanded, onCursor }) => {
+const Accordion = ({ details, expanded, setExpanded }) => {
   const isOpen = details.id === expanded;
   const [hovered, setHovered] = useState(false);
 

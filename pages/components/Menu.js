@@ -1,6 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { closeMenu } from "../../store/actions/globalActions";
+
+//Icons
+import {
+  Instagram,
+  Facebook,
+  LinkedIn,
+  Github,
+} from "../../assets/social-icons";
 
 const container = {
   hidden: { opacity: 0 },
@@ -27,7 +37,9 @@ const item = {
   },
 };
 
-const Menu = ({ toggleMenu, setToggleMenu }) => {
+const Menu = () => {
+  const dispatch = useDispatch();
+
   return (
     <motion.div
       initial={{ height: 0, skewY: 3 }}
@@ -52,26 +64,26 @@ const Menu = ({ toggleMenu, setToggleMenu }) => {
                 <motion.ul variants={container} initial="hidden" animate="show">
                   <motion.li
                     variants={item}
-                    onClick={() => setToggleMenu(false)}
+                    onClick={() => dispatch(closeMenu())}
                   >
-                    <Link href="/">
-                      <motion.a whileHover={{ skewX: -4 }}>Home</motion.a>
+                    <Link href="/projectOne">
+                      <motion.a>Project 1</motion.a>
                     </Link>
                   </motion.li>
                   <motion.li
                     variants={item}
-                    onClick={() => setToggleMenu(false)}
+                    onClick={() => dispatch(closeMenu())}
                   >
-                    <Link href="/about">
-                      <motion.a whileHover={{ skewX: -4 }}>About</motion.a>
+                    <Link href="projects/project-2">
+                      <motion.a>Project 2</motion.a>
                     </Link>
                   </motion.li>
                   <motion.li
                     variants={item}
-                    onClick={() => setToggleMenu(false)}
+                    onClick={() => dispatch(closeMenu())}
                   >
-                    <Link href="/contact">
-                      <motion.a whileHover={{ skewX: -4 }}>Projects</motion.a>
+                    <Link href="projects/project-3">
+                      <motion.a>Project 3</motion.a>
                     </Link>
                   </motion.li>
                 </motion.ul>
@@ -82,48 +94,55 @@ const Menu = ({ toggleMenu, setToggleMenu }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.3 }}
                 >
-                  Our Promise
+                  Contact
                 </motion.h3>
                 <motion.p
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.5 }}
                 >
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book.
+                  <p>Email: tzamalisn@gmx.de</p>
+                  <p>Mobile: 6973067764</p>
                 </motion.p>
               </motion.div>
               <div className="locations">
-                Social :<span>Facebook</span>
-                <span>LinkedIn</span>
-                <span>Github</span>
+                Social :
+                <motion.span
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.1 }}
+                >
+                  <Link href="https://github.com/nikostzam">
+                    <a target="_blank">
+                      <Github />
+                    </a>
+                  </Link>
+                </motion.span>
+                <motion.span
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.1 }}
+                >
+                  <Link href="https://facebook.com/nikos.czt">
+                    <a target="_blank">
+                      <Facebook />
+                    </a>
+                  </Link>
+                </motion.span>
+                <motion.span
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.1 }}
+                >
+                  <Link href="https://www.linkedin.com/in/nikolaostzamalis/">
+                    <a target="_blank">
+                      <LinkedIn />
+                    </a>
+                  </Link>
+                </motion.span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </motion.div>
-    /*  <>
-             <motion.div
-                 initial={{ height: 0 }}
-                 animate={{ height: '100vh' }}
-                 exit={{ height: 0 }}
-                 transition={{ duration: 0.7 }}
-                 className='navigation-layout'>
- 
-             </motion.div>
-             <motion.div
-                 initial={{ height: 0 }}
-                 animate={{ height: '100vh' }}
-                 exit={{ height: 0 }}
-                 transition={{ duration: .9 }}
-                 className="navigation">
- 
-             </motion.div>
-         </> */
   );
 };
 

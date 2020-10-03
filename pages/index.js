@@ -8,20 +8,22 @@ import HomeProject from "./components/HomeProject";
 
 const Home = () => {
   return (
-    <motion.div exit="exit">
-      <Panels />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="particles"
-      >
-        <ParticleContainer />
+    <>
+      <motion.div>
+        <Panels />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="particles"
+        >
+          {/*  <ParticleContainer /> */}
+        </motion.div>
+        <HomeBanner />
+        <HomeAbout />
+        <HomeProject />
       </motion.div>
-      <HomeBanner />
-      <HomeAbout />
-      <HomeProject />
-    </motion.div>
+    </>
   );
 };
 
