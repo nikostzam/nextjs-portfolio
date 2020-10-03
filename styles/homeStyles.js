@@ -51,9 +51,9 @@ export const BannerTitle = styled(motion.div)`
 export const HomeAboutSection = styled(motion.div)`
   margin-bottom: 200px;
   background-color: #191919;
-  height: 60vh;
+  height: 90vh;
   @media (max-width: 1260px) {
-    height: 100%;
+    height: 100vh;
   }
 `;
 

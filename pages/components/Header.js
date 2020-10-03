@@ -9,6 +9,7 @@ import {
   NavWrapper,
   MenuWrapper,
 } from "../../styles/headerStyles";
+import Navigation from "../components/Navigation";
 
 const Header = () => {
   const toggleMenu = useSelector((state) => state.global.toggleMenu);
@@ -26,7 +27,7 @@ const Header = () => {
     <>
       <HeaderContainer>
         <NavWrapper>
-          <Link href="/">
+          <Link href='/'>
             <h2 onClick={() => dispatch(closeMenu())}>
               Nikos<span>Tzamalis.</span>
             </h2>
@@ -36,16 +37,20 @@ const Header = () => {
               style={{
                 transform: toggleMenu ? "rotate(-45deg)" : "none",
                 top: toggleMenu ? "12px" : "0",
+                backgroundColor: toggleMenu ? "#f6f6f6" : "",
               }}
             ></span>
             <span
-              style={{ transform: toggleMenu ? "rotate(45deg)" : "none" }}
+              style={{
+                transform: toggleMenu ? "rotate(45deg)" : "none",
+                backgroundColor: toggleMenu ? "#f6f6f6" : "",
+              }}
             ></span>
           </MenuWrapper>
         </NavWrapper>
       </HeaderContainer>
       <AnimatePresence exitBeforeEnter>
-        {toggleMenu && <Menu />}
+        {toggleMenu && <Navigation />}
       </AnimatePresence>
     </>
   );

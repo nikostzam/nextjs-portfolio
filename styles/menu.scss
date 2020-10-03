@@ -15,9 +15,10 @@ $black: #191919;
       padding-right: 360px;
     }
   }
-  @media (max-width: 992px) {
+  @media (max-width: 1360px) {
     .menu-container {
       width: 992px;
+
       .menu-wrapper {
         padding: 0 32px;
       }
@@ -53,6 +54,11 @@ $black: #191919;
     background-color: #519e67;
     height: 100%;
     overflow: hidden;
+    @media (max-width: 1360px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     .menu-wrapper {
       position: relative;
@@ -62,11 +68,12 @@ $black: #191919;
         justify-content: space-between;
         align-items: center;
         position: relative;
+
         top: 200px;
-        @media (max-width: 1265px) {
-          justify-content: space-around;
+        @media (max-width: 1360px) {
+          justify-content: space-evenly;
         }
-        @media (max-width: 1130px) {
+        @media (max-width: 1360px) {
           position: absolute;
           left: 100px;
           justify-content: space-between;
@@ -86,8 +93,8 @@ $black: #191919;
               overflow: hidden;
               position: relative;
               width: 700px;
-              @media (max-width: 1265px) {
-                font-size: 5rem;
+              @media (max-width: 1366px) {
+                font-size: 5.5rem;
                 width: 500px;
               }
               @media (max-width: 1130px) {
@@ -111,8 +118,9 @@ $black: #191919;
 
         .info {
           width: 300px;
-          @media (max-width: 1130px) {
+          @media (max-width: 1366px) {
             margin-left: 150px;
+            width: 29%;
           }
 
           h3 {
@@ -140,6 +148,12 @@ $black: #191919;
         font-weight: 900;
         display: flex;
         align-items: center;
+        @media (max-width: 1366px) {
+          position: absolute;
+          bottom: 0px;
+          right: 0;
+        }
+
         span {
           font-weight: normal;
           cursor: pointer;

@@ -5,7 +5,7 @@ export const ProjectContainer = styled(motion.div)`
   flex-grow: 1;
   margin: 0 auto;
   margin-top: 128px;
-  padding: 0 32px;
+  padding: 0;
   position: relative;
   width: auto;
   height: 100%;
@@ -184,7 +184,7 @@ export const DecsriptionContainer = styled(motion.div)`
   flex-grow: 1;
   margin: 0 auto;
   margin-top: 200px;
-  padding: 0 32px;
+  padding: 0px;
   position: relative;
   width: auto;
   height: 100%;
@@ -254,14 +254,14 @@ export const FlexDetails = styled.div`
 export const FooterWrapper = styled.div`
   height: 100%;
   width: 80%;
-  margin: 250px auto 0 auto;
+  margin: 150px auto 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   @media (max-width: 1565px) {
     flex-direction: column;
     width: 100%;
-    padding: 32px 0;
+    padding: 0;
   }
   .left-container {
     min-width: 50%;
@@ -270,7 +270,9 @@ export const FooterWrapper = styled.div`
     align-items: center;
 
     @media (max-width: 1565px) {
-      margin-bottom: 150px;
+      margin-bottom: 100px;
+      width: 70%;
+      margin-top: 50px;
     }
     &:hover {
       .image {
@@ -315,7 +317,7 @@ export const FooterWrapper = styled.div`
         width: 350px;
         height: 230px;
         position: absolute;
-        right: 70px;
+        right: 200px;
         top: 0;
       }
       img {
@@ -330,6 +332,10 @@ export const FooterWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    @media (max-width: 1565px) {
+      width: 70%;
+    }
     &:hover {
       .image {
         opacity: 1;
@@ -379,8 +385,8 @@ export const FooterWrapper = styled.div`
         width: 350px;
         height: 230px;
         position: absolute;
-        left: 400px;
-        bottom: 0;
+        right: 470px;
+        bottom: 0px;
       }
 
       img {
