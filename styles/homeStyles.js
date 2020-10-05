@@ -18,6 +18,10 @@ export const Wrapper = styled(motion.div)`
   @media (max-width: 1260px) {
     right: 140px;
   }
+  @media (max-width: 450px) {
+    right: -0px;
+    top: 90px;
+  }
 `;
 
 export const BannerName = styled(motion.div)`
@@ -33,6 +37,9 @@ export const BannerName = styled(motion.div)`
   @media (max-width: 1260px) {
     font-size: 60px;
   }
+  @media (max-width: 450px) {
+    font-size: 30px;
+  }
 `;
 
 export const BannerTitle = styled(motion.div)`
@@ -45,15 +52,21 @@ export const BannerTitle = styled(motion.div)`
     font-size: 32px;
     letter-spacing: 2px;
   }
+  @media (max-width: 450px) {
+    font-size: 18px;
+  }
 `;
 
 //HOME ABOUT SECTION
 export const HomeAboutSection = styled(motion.div)`
   margin-bottom: 200px;
   background-color: #191919;
-  height: 90vh;
+  min-height: 70vh;
+  width: 100%;
   @media (max-width: 1260px) {
-    height: 100vh;
+    min-height: 100vh;
+  }
+  @media (max-width: 450px) {
   }
 `;
 
@@ -61,6 +74,9 @@ export const About = styled.div`
   width: 100%;
   margin: 120px 0;
   cursor: context-menu;
+  @media (max-width: 450px) {
+    margin-bottom: 0;
+  }
 
   h2 {
     width: 70%;
@@ -69,6 +85,10 @@ export const About = styled.div`
     margin-left: 124px;
     color: white;
     margin-bottom: 20px;
+    @media (max-width: 450px) {
+      font-size: 1.2rem;
+      margin: 0 auto;
+    }
 
     span {
       position: relative;
@@ -76,12 +96,15 @@ export const About = styled.div`
     }
   }
   p {
-    max-width: 440px;
+    max-width: 70%;
     font-size: 1rem;
     line-height: 1.6rem;
     margin-left: 124px;
     color: white;
     position: relative;
+    @media (max-width: 450px) {
+      margin: 50px auto;
+    }
 
     span {
       font-weight: bold;
@@ -91,6 +114,9 @@ export const About = styled.div`
 export const Services = styled.div`
   color: #f6f6f6;
   margin: 120px 0;
+  @media (max-width: 450px) {
+    margin: 120px auto;
+  }
 `;
 
 //Accordion
@@ -168,6 +194,10 @@ export const Flex = styled(motion.div)`
   position: relative;
   display: flex;
   align-items: center;
+  @media (max-width: 450px) {
+    flex-direction: column;
+    justify-content: space-around;
+  }
   ${(props) =>
     props.spaceBetween &&
     css`

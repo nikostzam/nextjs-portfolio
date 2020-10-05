@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
-  width: auto;
+  width: 100%;
   height: 100%;
   background-color: #191919;
   display: flex;
@@ -20,6 +20,9 @@ export const Container = styled.div`
   }
   @media (min-width: 1408px) {
     max-width: 1244px;
+  }
+  @media (max-width: 450px) {
+    max-width: 450px;
   }
   ${(props) =>
     props.fluid &&
@@ -40,6 +43,12 @@ export const Flex = styled.div`
   width: 80%;
   justify-content: center;
   margin: 0 auto;
+  @media (max-width: 917px) {
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 60px;
+    width: 100vw;
+  }
   ${(props) =>
     props.spaceBetween &&
     css`
@@ -69,9 +78,15 @@ export const FooterContent = styled.div`
   line-height: 28px;
   flex: 1;
   align-self: center;
+
   @media (max-width: 1216px) {
     p {
       font-size: 20px;
+    }
+  }
+  @media (max-width: 450px) {
+    p {
+      font-size: 16px;
     }
   }
   p {
@@ -99,8 +114,11 @@ export const FooterSocial = styled.div`
   align-items: center;
   @media (max-width: 1216px) {
     p {
-      font-size: 14px;
+      font-size: 16px;
     }
+  }
+  @media (max-width: 450px) {
+    font-size: 16px;
   }
   p {
     font-weight: 400;

@@ -41,6 +41,9 @@ export const MenuWrapper = styled.div`
   cursor: pointer;
   position: fixed;
   right: 90px;
+  @media (max-width: 450px) {
+    right: 25px;
+  }
 
   span {
     width: 30px;

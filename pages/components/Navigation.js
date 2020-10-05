@@ -204,19 +204,19 @@ export const NavVideos = styled.div`
   background: #000;
   .reveal {
     width: 100%;
-    background: #ea281e;
+    background: #191919;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
   }
   .video {
-    background: #000;
+    background: #191919;
     position: absolute;
     height: 100%;
     margin: 0;
     z-index: -1;
-    video {
+    img {
       height: 100%;
     }
   }
@@ -259,36 +259,52 @@ export const FooterSocial = styled.div`
 const Navigation = () => {
   const toggleMenu = useSelector((state) => state.global.toggleMenu);
 
+  const [revealVideo, setRevealVideo] = useState({
+    show: false,
+    video: "",
+    key: "0",
+  });
+
   return (
     <>
       <AnimatePresence>
         {toggleMenu && (
           <Nav
-            initial={{ x: "-100%" }}
-            exit={{ x: "-100%" }}
-            animate={{ x: toggleMenu ? 0 : "-100%" }}
+            initial={{ y: "-100%" }}
+            exit={{ y: "-100%" }}
+            animate={{ y: toggleMenu ? 0 : "-100%" }}
             transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
           >
             <Container>
               <NavHeader>
                 <Flex spaceBetween noHeight>
-                  <h2 to='/'>Projects</h2>
-                  <CloseNav onClick={() => setToggleMenu(!toggleMenu)}>
-                    <button>
-                      <span></span>
-                      <span></span>
-                    </button>
-                  </CloseNav>
+                  <h2 to="/">Projects</h2>
                 </Flex>
               </NavHeader>
               <NavList>
                 <ul>
                   {navRoutes.map((route) => (
-                    <motion.li key={route.id}>
-                      <Link href='/'>
+                    <motion.li
+                      key={route.id}
+                      onHoverStart={() =>
+                        setRevealVideo({
+                          show: true,
+                          video: route.video,
+                          key: route.id,
+                        })
+                      }
+                      onHoverEnd={() =>
+                        setRevealVideo({
+                          show: false,
+                          video: "",
+                          key: null,
+                        })
+                      }
+                    >
+                      <Link href="/">
                         <motion.div
                           initial={{ x: -108 }}
-                          className='link'
+                          className="link"
                           whileHover={{
                             x: -40,
                             transition: {
@@ -297,15 +313,15 @@ const Navigation = () => {
                             },
                           }}
                         >
-                          <span className='arrow'>
+                          <span className="arrow">
                             <motion.svg
-                              xmlns='http://www.w3.org/2000/svg'
-                              viewBox='0 0 101 57'
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 101 57"
                             >
                               <path
-                                d='M33 34H0V24h81.429L66 7.884 73.548 0l19.877 20.763.027-.029L101 28.618 73.829 57l-7.548-7.884L80.753 34H33z'
-                                fill='#000'
-                                fillRule='evenodd'
+                                d="M33 34H0V24h81.429L66 7.884 73.548 0l19.877 20.763.027-.029L101 28.618 73.829 57l-7.548-7.884L80.753 34H33z"
+                                fill="#000"
+                                fillRule="evenodd"
                               ></path>
                             </motion.svg>
                           </span>
@@ -319,24 +335,48 @@ const Navigation = () => {
               <NavFooter>
                 <Flex spaceBetween>
                   <FooterContent>
-                    <p>info@furrow.studio</p>
+                    <p>tzamalisn@gmx.de</p>
                   </FooterContent>
                   <FooterContent wider>
-                    <p>902.315.1279</p>
+                    <p>(+30) 697 30 67 764</p>
                   </FooterContent>
                   <FooterSocial>
-                    <a href='/' target='_blank'>
+                    <a href="/" target="_blank">
                       <Instagram />
                     </a>
-                    <a href='/' target='_blank'>
+                    <a href="/" target="_blank">
                       <Facebook />
                     </a>
-                    <a href='/' target='_blank'>
+                    <a href="/" target="_blank">
                       <LinkedIn />
                     </a>
                   </FooterSocial>
                 </Flex>
               </NavFooter>
+              <NavVideos>
+                <motion.div
+                  animate={{ width: revealVideo.show ? 0 : "110%" }}
+                  transition={{ duration: 0.6, ease: [0.6, 0.05, -0.01, 0.9] }}
+                  className="reveal"
+                ></motion.div>
+                <motion.div className="video">
+                  <AnimatePresence initial={false} exitBeforeEnter>
+                    <motion.img
+                      key={revealVideo.key}
+                      src={"/images/featured.jpg"}
+                      initial={{ opacity: 0 }}
+                      exit={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                      }}
+                      transition={{
+                        duration: 0.6,
+                        ease: [0.6, 0.05, -0.01, 0.9],
+                      }}
+                    ></motion.img>
+                  </AnimatePresence>
+                </motion.div>
+              </NavVideos>
             </Container>
           </Nav>
         )}

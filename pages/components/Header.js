@@ -27,7 +27,7 @@ const Header = () => {
     <>
       <HeaderContainer>
         <NavWrapper>
-          <Link href='/'>
+          <Link href="/">
             <h2 onClick={() => dispatch(closeMenu())}>
               Nikos<span>Tzamalis.</span>
             </h2>

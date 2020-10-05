@@ -254,7 +254,7 @@ export const FlexDetails = styled.div`
 export const FooterWrapper = styled.div`
   height: 100%;
   width: 80%;
-  margin: 150px auto 0 auto;
+  margin: 270px auto 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
